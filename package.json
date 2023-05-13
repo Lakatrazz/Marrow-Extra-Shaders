@@ -1,0 +1,20 @@
+{
+    "name": "com.lakatrazz.marrowextrashaders",
+	"version": "1.0.0",
+    "displayName": "Marrow Extra Shaders",
+    "description": "Extra shader graph shaders for use in the Marrow SDk.",
+	"unity": "2021.3",
+	"dependencies": {
+    },
+	"keywords": [
+		"slz",
+		"lakatrazz",
+		"shaders"
+	],
+	"license": "MIT",
+	"author": {
+		"name": "Lakatrazz"
+	},
+	"unityRelease": "15f1",
+	"hideInEditor": false
+}
