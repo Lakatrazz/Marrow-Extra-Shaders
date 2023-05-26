@@ -29,10 +29,37 @@ public static partial class ShaderConverter {
         material.shader = Shader.Find("Universal Render Pipeline/Valve/vr_silhouette");
     }
 
-    private static void ConvertValveVR(Material material, bool isSpecular) {
+    private static void ConvertValveVR(Material material) {
         material.shader = Shader.Find("Universal Render Pipeline/Valve/vr_standard");
+        UpdateValveVRSpecular(material);
+    }
 
-        material.SetFloat("_WorkflowMode", isSpecular ? 0f : 1f);
+    private static void UpdateValveVRSpecular(Material material) {
+        var specularMode = Mathf.RoundToInt(material.GetFloat("_SpecularMode"));
+
+        float workflowMode;
+        bool isSpecular;
+
+        switch (specularMode) {
+            // BlinnPhong
+            case 0:
+                workflowMode = 0f;
+                isSpecular = true;
+                break;
+            // Metallic
+            case 1:
+            // Anisotropic
+            case 2:
+            // Retroreflective
+            case 3:
+            default:
+                workflowMode = 1f;
+                isSpecular = false;
+                break;
+        }
+
+
+        material.SetFloat("_WorkflowMode", workflowMode);
 
         if (isSpecular) {
             material.EnableKeyword("_METALLICSPECGLOSSMAP");
