@@ -192,7 +192,7 @@
         "b": 1.0,
         "a": 1.0
     },
-    "isMainColor": false,
+    "isMainColor": true,
     "m_ColorMode": 1
 }
 
@@ -687,7 +687,7 @@
     "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.699999988079071,
+        "x": 1.5,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
